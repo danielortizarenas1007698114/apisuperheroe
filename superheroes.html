@@ -31,7 +31,8 @@
     <script>
 
         var conca = "";
-        var code = document.getElementById(codigo).values;
+        const code = document.getElementById(codigo).values;
+        const heroes = document.getElementById("heroes");
 
             function  xd(){
          
@@ -39,10 +40,10 @@
             .then(function(response) {
                     return response.json();                     
             }).then(function(data){                  
-                console.log(data);                               
-                        conca += "<p>nombre "+ data.name +" </p>";                  
-                     // conca += "<img src='"+ data.flag +"' width='100px' heigth='100px' />";
-                    heroes.innerHTML = conca;
+                console.log(data); 
+                     heroes.innerHTML= "<p>Nombre: "+ data.name +"</p><p>Ocupación: "+ data.work.occupation +"</p><p>Genero: "+ data.appearance.gender +"</p><p>Raza: "+ data.appearance.race +"</p><img src='"+ data.image.url +"' width='400px' height='350px' class='alcentro'></img>";
+                
+                    
                 }).catch(function(error){             
                     console.log(error);
                 })
